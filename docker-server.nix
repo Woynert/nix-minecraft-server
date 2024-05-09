@@ -54,6 +54,7 @@ in {
         ''
         if [ ! -z $CPULIMIT ]; then
           {
+            echo "CPULIMIT=$CPULIMIT"
             # give some seconds of full cpu usage
             coproc read -t 8 && wait "$!" || true &&
             exec cpulimit -l $CPULIMIT -p "$(exec < server_pid; read pid; echo "$pid")"
