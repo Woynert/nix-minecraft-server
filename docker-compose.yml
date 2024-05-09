@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  server:
+    image: pufferfish-1.20.4:1.0.0
+    environment:
+      - CPULIMIT=100
+      - JAVAOPTS=-Xms1024m -Xmx1024m
+    volumes:
+      - ./data:/data
+    ports:
+      - "25565:25565"
+    restart: always
